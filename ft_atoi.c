@@ -6,13 +6,13 @@
 /*   By: zait-err <zait-err@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 10:37:07 by zait-err          #+#    #+#             */
-/*   Updated: 2024/10/30 08:16:51 by zait-err         ###   ########.fr       */
+/*   Updated: 2024/11/03 14:39:42 by zait-err         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	int	i;
 	int	result;

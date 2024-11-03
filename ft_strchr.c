@@ -6,7 +6,7 @@
 /*   By: zait-err <zait-err@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 10:37:57 by zait-err          #+#    #+#             */
-/*   Updated: 2024/11/02 11:50:08 by zait-err         ###   ########.fr       */
+/*   Updated: 2024/11/03 11:45:33 by zait-err         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,25 @@
 
 char	*ft_strchr(const char *str, int ch)
 {
-	if(ch == 0)
-		return (0);
+	char c;
+
+	c = (char)ch;
 	while (*str != '\0')
 	{
-		if (*str == ch)
+		if (*str == c)
 			return ((char *)str);
 		str++;
 	}
+	if(*str == c)
+      return ((char *)str);
 	return (NULL);
 }
 
-int main()
+/*int main()
 {
 
 	char* str = "This is MY string!";
-	char ch = 'M';
+	char ch = '\0';
 
 	char* result = strchr(str, ch);
    char* result2 = ft_strchr(str, ch);
@@ -53,4 +56,4 @@ int main()
 
 
 	return (0);
-}
+}*/
