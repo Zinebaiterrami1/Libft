@@ -1,0 +1,69 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zait-err <zait-err@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/25 14:44:20 by zait-err          #+#    #+#             */
+/*   Updated: 2024/11/03 19:39:36 by zait-err         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+static int	len_nbr(long nbr)
+{
+	int	len;
+
+	len = 0;
+	if(nbr == 0)
+		return (1);
+	if (nbr < 0)
+		len++;
+	while (nbr)
+	{
+		nbr /= 10;
+		len++;
+	}
+	return (len);
+}
+static char	*fill_str(char *str, long nbr, int len)
+{
+	int	i;
+
+	i = 0;
+	if (nbr < 0)
+	{
+		str[0] = '-';
+		nbr = -nbr;
+	}
+	str[len] = '\0';
+	len--;
+	if(nbr == 0)
+	{
+		str[0] = '0';
+		return (str);
+	}
+	while (nbr > 0)
+	{
+		str[len--] = (nbr % 10) + '0';
+		nbr /= 10;
+	}
+	return (str);
+}
+char	*ft_itoa(int n)
+{
+	int		len;
+	char	*str;
+	long	nb;
+
+	nb = n;
+	len = len_nbr(nb);
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (NULL);
+	fill_str(str, nb, len);
+	return (str);
+}
+
