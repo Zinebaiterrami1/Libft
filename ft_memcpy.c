@@ -1,41 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zait-err <zait-err@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 10:38:14 by zait-err          #+#    #+#             */
-/*   Updated: 2024/11/02 13:24:49 by zait-err         ###   ########.fr       */
+/*   Created: 2024/10/23 15:59:41 by zait-err          #+#    #+#             */
+/*   Updated: 2024/11/02 14:50:29 by zait-err         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	size_t	i;
+	size_t			i;
+	unsigned char	*char_dest;
+	unsigned char	*char_src;
 
+	if (!dest && !src)
+		return (NULL);
+	char_dest = (unsigned char *)dest;
+	char_src = (unsigned char *)src;
 	i = 0;
-	if(n == 0)
-		return (0);
-	while (i < n && s1[i] && s2[i] && (s1[i] == s2[i]))
+	while (i < n)
 	{
+		char_dest[i] = char_src[i];
 		i++;
 	}
-	if(i == n)
-		return (0);
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	return (dest);
 }
 
 /*int main()
 {
-	char *str1 = "abc";
-	char *str2 = "cba";
+	char src[] = "copy this";
+	char dest[100];
 
-	int result, result2;
+	char *dest_ptr = ft_memcpy(dest, src, strlen(src) + 1);
 
-	result = ft_strncmp(str1, str2, 3);
-	result2 = strncmp(str1, str2, 3);
-	printf("\ntest strncmp %d , test ft_strncmp %d", result2, result);
+	printf("src: %s\n", src);
+	printf("dest: %s\n", dest);
 }*/

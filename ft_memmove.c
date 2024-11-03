@@ -1,42 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zait-err <zait-err@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 10:38:06 by zait-err          #+#    #+#             */
-/*   Updated: 2024/11/01 15:16:25 by zait-err         ###   ########.fr       */
+/*   Created: 2024/10/24 08:24:02 by zait-err          #+#    #+#             */
+/*   Updated: 2024/10/31 09:52:49 by zait-err         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+void	*ft_mememove(void *dest, const char *src, size_t len)
 {
-	size_t	i;
-	size_t	len;
+	size_t		i;
+	const char	*s;
+	char		*d;
 
-	len = ft_strlen(src);
+	d = (char *)dest;
+	s = (const char *)src;
 	i = 0;
-	if (size == 0)
-		return (len);
-	while (src[i] != '\0' && i < size - 1)
+	if (d > s)
 	{
-		dest[i] = src[i];
-		i++;
+		while (len-- > 0)
+			d[len] = s[len];
 	}
-	dest[i] = '\0';
-	return (len);
+	else
+	{
+		while (i < len)
+		{
+			d[i] = s[i];
+			i++;
+		}
+	}
+	return (dest);
 }
 
-/*int	main(void)
+/*int main()
 {
-	char src []  = "Salut Zineb";
-	char dest [8];
-	int i ;
-	i = ft_strlcpy(dest, src, 15);
-	printf("%d\n", i);
-	printf("%s", dest);
-	return (0);
+	char d[10] = "";
+	char s[] = "hello";
+	printf("%s", (char *)ft_mememove(d, s, 2));
 }*/

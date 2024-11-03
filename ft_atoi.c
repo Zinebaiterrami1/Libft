@@ -1,42 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zait-err <zait-err@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 10:38:06 by zait-err          #+#    #+#             */
-/*   Updated: 2024/11/01 15:16:25 by zait-err         ###   ########.fr       */
+/*   Created: 2024/10/23 10:37:07 by zait-err          #+#    #+#             */
+/*   Updated: 2024/10/30 08:16:51 by zait-err         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+int	ft_atoi(char *str)
 {
-	size_t	i;
-	size_t	len;
+	int	i;
+	int	result;
+	int	sign;
 
-	len = ft_strlen(src);
 	i = 0;
-	if (size == 0)
-		return (len);
-	while (src[i] != '\0' && i < size - 1)
+	sign = 1;
+	result = 0;
+	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
 	{
-		dest[i] = src[i];
 		i++;
 	}
-	dest[i] = '\0';
-	return (len);
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			sign = sign * -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result = result * 10 + (str[i] - 48);
+		i++;
+	}
+	return (result * sign);
 }
-
-/*int	main(void)
-{
-	char src []  = "Salut Zineb";
-	char dest [8];
-	int i ;
-	i = ft_strlcpy(dest, src, 15);
-	printf("%d\n", i);
-	printf("%s", dest);
-	return (0);
-}*/

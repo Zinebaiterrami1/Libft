@@ -1,42 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zait-err <zait-err@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 10:38:06 by zait-err          #+#    #+#             */
-/*   Updated: 2024/11/01 15:16:25 by zait-err         ###   ########.fr       */
+/*   Created: 2024/10/24 14:53:24 by zait-err          #+#    #+#             */
+/*   Updated: 2024/10/30 09:03:51 by zait-err         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+char	*ft_strdup(const char *src)
 {
-	size_t	i;
-	size_t	len;
+	size_t	len_src;
+	char	*arr;
 
-	len = ft_strlen(src);
-	i = 0;
-	if (size == 0)
-		return (len);
-	while (src[i] != '\0' && i < size - 1)
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (len);
+	len_src = ft_strlen(src);
+	arr = (char *)malloc((len_src + 1) * sizeof(char));
+	if (arr == NULL)
+		return (NULL);
+	ft_memcpy(arr, src, len_src + 1);
+	return (arr);
 }
-
-/*int	main(void)
-{
-	char src []  = "Salut Zineb";
-	char dest [8];
-	int i ;
-	i = ft_strlcpy(dest, src, 15);
-	printf("%d\n", i);
-	printf("%s", dest);
-	return (0);
-}*/

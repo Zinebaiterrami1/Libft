@@ -1,10 +1,20 @@
-#include "libft.h"
-#include <ctype.h>
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zait-err <zait-err@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/23 10:37:41 by zait-err          #+#    #+#             */
+/*   Updated: 2024/10/30 08:20:26 by zait-err         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int ft_isascii(int c)
+#include "libft.h"
+
+int	ft_isascii(int c)
 {
-    if(c >= 0 && c <= 127)
-        return 1;
-    return 0;
+	if (c >= 0 && c <= 127)
+		return (1);
+	return (0);
 }

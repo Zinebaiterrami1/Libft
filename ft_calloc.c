@@ -1,42 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zait-err <zait-err@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 10:38:06 by zait-err          #+#    #+#             */
-/*   Updated: 2024/11/01 15:16:25 by zait-err         ###   ########.fr       */
+/*   Created: 2024/10/24 13:07:16 by zait-err          #+#    #+#             */
+/*   Updated: 2024/10/31 11:29:12 by zait-err         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+void	*ft_calloc(size_t count, size_t size) // return s
 {
-	size_t	i;
-	size_t	len;
+	void	*s;
 
-	len = ft_strlen(src);
-	i = 0;
-	if (size == 0)
-		return (len);
-	while (src[i] != '\0' && i < size - 1)
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (len);
+	s = malloc(count * size);
+	if (!s)
+		return (NULL);
+	ft_bzero(s, count * size);
+	return (s);
 }
-
-/*int	main(void)
-{
-	char src []  = "Salut Zineb";
-	char dest [8];
-	int i ;
-	i = ft_strlcpy(dest, src, 15);
-	printf("%d\n", i);
-	printf("%s", dest);
-	return (0);
-}*/
