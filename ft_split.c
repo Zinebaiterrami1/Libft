@@ -6,7 +6,7 @@
 /*   By: zait-err <zait-err@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 15:01:38 by zait-err          #+#    #+#             */
-/*   Updated: 2024/10/31 10:39:38 by zait-err         ###   ########.fr       */
+/*   Updated: 2024/11/12 12:00:20 by zait-err         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,16 @@ static char	*fill_word(const char *s, char c)
 	return (arr);
 }
 
-static char	**ft_free(char **s, int i)
+static char	**ft_free(char **s)
 {
-	while (--i >= 0)
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
 		free(s[i]);
+		i++;
+	}
 	free(s);
 	return (NULL);
 }
@@ -95,35 +101,10 @@ char	**ft_split(char const *s, char c)
 		{
 			str[j] = fill_word(s + i, c);
 			if (str[j++] == NULL)
-				return (ft_free(str, j));
+				return (ft_free(str));
 			while (s[i] && s[i] != c)
 				i++;
 		}
 	}
 	return (str[j] = NULL, str);
 }
-
-// int main()
-// {
-// 	char *s = "hello,1337,students";
-// 	char c = ',';
-// 	char **result = ft_split(s, c);
-// 	int i = 0;
-
-// 	if (result == NULL)
-// 	{
-// 		printf("Memory allocation failed.\n");
-// 		return (1);
-// 	}
-
-// 	printf("Split result:\n");
-// 	while (result[i])
-// 	{
-// 		printf("Word %d: %s\n", i + 1, result[i]);
-// 		free(result[i]);  // Libère chaque sous-chaîne après l'utilisation
-// 		i++;
-// 	}
-// 	free(result);  // Libère le tableau de chaînes
-
-// 	return (0);
-// }

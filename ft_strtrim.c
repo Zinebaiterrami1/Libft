@@ -6,7 +6,7 @@
 /*   By: zait-err <zait-err@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 08:42:46 by zait-err          #+#    #+#             */
-/*   Updated: 2024/10/30 09:10:46 by zait-err         ###   ########.fr       */
+/*   Updated: 2024/11/15 10:35:14 by zait-err         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*new_str;
 
 	start = 0;
-	if (!s1 || !set)
+	if (!s1)
 		return (NULL);
+	if (!set)
+		return (ft_strdup(s1));
 	while (s1[start] && is_in_set(s1[start], set))
 		start++;
 	end = ft_strlen(s1);
@@ -44,13 +46,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	new_str[end - start] = '\0';
 	return (new_str);
 }
-
-/*int main()
-{
-	char *s = "hhhzinebjjjj";
-	char *s1 = "bbaaabbbnoussayba baaabbaaabbb";
-	char *set1 = "b";
-	char *set = "hj";
-	printf("%s", ft_strtrim(s, set));
-	printf("\n%s", ft_strtrim(s1, set1));
-}*/
