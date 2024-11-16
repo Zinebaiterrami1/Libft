@@ -6,7 +6,7 @@
 /*   By: zait-err <zait-err@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 08:22:56 by zait-err          #+#    #+#             */
-/*   Updated: 2024/10/31 16:27:23 by zait-err         ###   ########.fr       */
+/*   Updated: 2024/11/08 10:44:34 by zait-err         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int	ft_lstsize(t_list *lst)
 	t_list	*tmp;
 	int		count;
 
-	count = 0;
 	if (!lst)
 		return (0);
+	count = 0;
 	tmp = lst;
 	while (tmp != NULL)
 	{

@@ -6,7 +6,7 @@
 /*   By: zait-err <zait-err@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 08:32:43 by zait-err          #+#    #+#             */
-/*   Updated: 2024/11/03 16:38:51 by zait-err         ###   ########.fr       */
+/*   Updated: 2024/11/10 11:42:43 by zait-err         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,23 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new;
 	t_list	*new_lst;
-	t_list	*tmp;
+	void	*content;
 
-	new_lst = NULL;
 	if (!lst || !f || !del)
 		return (NULL);
-	tmp = lst;
-	while(tmp)
+	new_lst = NULL;
+	while (lst)
 	{
-		new = ft_lstnew(f(tmp->content));
+		content = f(lst->content);
+		new = ft_lstnew(content);
 		if (!new)
 		{
+			del(content);
 			ft_lstclear(&new_lst, del);
 			return (NULL);
 		}
 		ft_lstadd_back(&new_lst, new);
-		tmp = tmp->next;
+		lst = lst->next;
 	}
 	return (new_lst);
 }
