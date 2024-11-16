@@ -6,7 +6,7 @@
 /*   By: zait-err <zait-err@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 10:37:27 by zait-err          #+#    #+#             */
-/*   Updated: 2024/11/01 15:15:01 by zait-err         ###   ########.fr       */
+/*   Updated: 2024/11/08 09:26:37 by zait-err         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,3 @@ int	ft_isalpha(int c)
 		return (1);
 	return (0);
 }
-/*int	main(void)
-{
-	char c;
-	char v;
-	char i;
-	char spc;
-	int res;
-	
-	c = 'Z';
-	v = '1';
-	i = '+';
-	spc = ' ';
-	res = ft_isalpha(v);
-	
-	if(res == 1)
-	printf("\nResult if this char %c is an alpha %d", v, ft_isalpha(v));
-	else
-	printf("\nResult if this char %c is not an alpha %d", v, ft_isalpha(v));
-
-	
-}*/
